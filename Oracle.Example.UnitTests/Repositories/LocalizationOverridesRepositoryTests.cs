@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using Dapper.Oracle.Example.Infrastructure;
 using Dapper.Oracle.Example.Interface;
 using Dapper.Oracle.Example.Models;
 using Dapper.Oracle.Example.Repositories;
+using Dapper.Oracle.Example.Tests;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Ploeh.AutoFixture;
 
-namespace Dapper.Oracle.Example.Tests.Repositories
+namespace Oracle.Example.UnitTests.Repositories
 {
     [TestClass]
     public class LocalizationOverridesRepositoryTests : UnitTest

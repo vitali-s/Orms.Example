@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dapper.Oracle.Example.Tests")]
+[assembly: AssemblyTitle("NHibernate.Oracle.Example")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Vitali Shcharbin")]
-[assembly: AssemblyProduct("Dapper.Oracle.Example.Tests")]
+[assembly: AssemblyProduct("NHibernate.Oracle.Example")]
 [assembly: AssemblyCopyright("Copyright © Vitali Shcharbin")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ab7e7778-187f-4e3e-815d-4c519c404dc1")]
+[assembly: Guid("e12e2543-b300-4bf6-b9d4-d97b621e3d96")]
 
 // Version information for an assembly consists of the following four values:
 //
