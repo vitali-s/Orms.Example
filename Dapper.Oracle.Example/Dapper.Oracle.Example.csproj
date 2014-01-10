@@ -47,12 +47,14 @@
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\SqlMapper.Designer.cs" />
     <Compile Include="Interface\IDatabaseConfiguration.cs" />
+    <Compile Include="Interface\ILocalizationOverridesRepository.cs" />
     <Compile Include="Models\FormattingData.cs" />
     <Compile Include="Models\LocalizationData.cs" />
     <Compile Include="Models\LocalizationSettingsAggregateData.cs" />
     <Compile Include="Models\LocalizationSettingsData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interface\ILocalizationSettingsRepository.cs" />
+    <Compile Include="Repositories\LocalizationOverridesRepository.cs" />
     <Compile Include="Repositories\LocalizationSettingsRepository.cs" />
   </ItemGroup>
   <ItemGroup>

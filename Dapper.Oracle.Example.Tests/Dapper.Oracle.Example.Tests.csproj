@@ -60,6 +60,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Repositories\LocalizationOverridesRepositoryTests.cs" />
     <Compile Include="Repositories\LocalizationSettingsRepositoryTests.cs" />
     <Compile Include="UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -35,5 +35,47 @@ namespace Dapper.Oracle.Example.Infrastructure
                 return executeCommand(connection);
             }
         }
+
+        protected virtual void Execute(Action<OracleConnection> executeCommand)
+        {
+            using (var connection = new OracleConnection(_databaseConfiguration.ConnectionString))
+            {
+                connection.Open();
+
+                executeCommand(connection);
+            }
+        }
+
+        protected virtual TResult ExecuteTransaction<TResult>(Func<OracleConnection, OracleTransaction, TResult> executeCommand)
+        {
+            using (var connection = new OracleConnection(_databaseConfiguration.ConnectionString))
+            {
+                connection.Open();
+
+                using (var transaction = connection.BeginTransaction())
+                {
+                    TResult result = executeCommand(connection, transaction);
+
+                    transaction.Commit();
+
+                    return result;
+                }
+            }
+        }
+
+        protected virtual void ExecuteTransaction(Action<OracleConnection, OracleTransaction> executeCommand)
+        {
+            using (var connection = new OracleConnection(_databaseConfiguration.ConnectionString))
+            {
+                connection.Open();
+
+                using (var transaction = connection.BeginTransaction())
+                {
+                    executeCommand(connection, transaction);
+
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

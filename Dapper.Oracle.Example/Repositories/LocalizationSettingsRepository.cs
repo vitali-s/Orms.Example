@@ -16,29 +16,31 @@ namespace Dapper.Oracle.Example.Repositories
 
         public LocalizationSettingsAggregateData GetSettings(Guid entityId, string language)
         {
-            return Execute<LocalizationSettingsAggregateData>(
-                connection =>
-                {
-                    var settingsAggregateData = connection.Query<LocalizationSettingsAggregateData>(
-                        @"SELECT ID, ENTITY_ID, PARENT_ID, LANGUAGE, FORMATTING
-                        FROM LOCALIZATION_SETTINGS
-                        WHERE ENTITY_ID = :entity_id",
-                        new { entity_id = entityId.ToByteArray() }).FirstOrDefault();
+            return ExecuteTransaction<LocalizationSettingsAggregateData>((connection, transaction) =>
+            {
+                var settingsAggregateData = connection.Query<LocalizationSettingsAggregateData>(
+                    @"SELECT ID, ENTITY_ID, PARENT_ID, LANGUAGE, FORMATTING
+                    FROM LOCALIZATION_SETTINGS
+                    WHERE ENTITY_ID = :entity_id",
+                    new { entity_id = entityId.ToByteArray() },
+                    transaction).FirstOrDefault();
 
-                    settingsAggregateData.Localizations = connection.Query<LocalizationData>(
-                        @"SELECT ID, LOCALIZATION_SETTINGS_ID, KEY, VALUE
-                        FROM LOCALE_OVERRIDES
-                        WHERE LOCALIZATION_SETTINGS_ID = :id",
-                        new { id = settingsAggregateData.Id }).ToList();
+                settingsAggregateData.Localizations = connection.Query<LocalizationData>(
+                    @"SELECT ID, LOCALIZATION_SETTINGS_ID, KEY, VALUE
+                    FROM LOCALE_OVERRIDES
+                    WHERE LOCALIZATION_SETTINGS_ID = :id",
+                    new { id = settingsAggregateData.Id },
+                    transaction).ToList();
 
-                    settingsAggregateData.Formattings = connection.Query<FormattingData>(
-                        @"SELECT ID, LOCALIZATION_SETTINGS_ID, KEY, VALUE
-                        FROM FORMATTING_OVERRIDES
-                        WHERE LOCALIZATION_SETTINGS_ID = :id",
-                        new { id = settingsAggregateData.Id }).ToList();
+                settingsAggregateData.Formattings = connection.Query<FormattingData>(
+                    @"SELECT ID, LOCALIZATION_SETTINGS_ID, KEY, VALUE
+                    FROM FORMATTING_OVERRIDES
+                    WHERE LOCALIZATION_SETTINGS_ID = :id",
+                    new { id = settingsAggregateData.Id },
+                    transaction).ToList();
 
-                    return settingsAggregateData;
-                });
+                return settingsAggregateData;
+            });
         }
 
         public LocalizationSettingsData GetByEntityId(Guid entityId)
