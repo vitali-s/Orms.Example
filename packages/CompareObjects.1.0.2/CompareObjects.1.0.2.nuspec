@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CompareObjects</id>
+    <version>1.0.2</version>
+    <title>.NET Objects Comparer</title>
+    <authors>Kellerman Software; Andrey Bulygin</authors>
+    <owners>Kellerman Software; Andrey Bulygin</owners>
+    <licenseUrl>https://comparenetobjects.codeplex.com/license</licenseUrl>
+    <projectUrl>https://github.com/andrew-bn/compare-objects</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Forked package of Compare .NET Objects (https://comparenetobjects.codeplex.com/) with some fixes</description>
+    <releaseNotes>fix parent tracing</releaseNotes>
+    <copyright />
+    <language />
+    <tags>object .net compare</tags>
+  </metadata>
+</package>
