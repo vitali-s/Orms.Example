@@ -21,12 +21,12 @@ namespace Dapper.Oracle.Example.Infrastructure
             return Execute(connection => connection.Query<TDataModel>(sqlCommand, parameters));
         }
 
-        public virtual void Execute(string sqlCommand, object parameters = null)
+        protected virtual void Execute(string sqlCommand, object parameters = null)
         {
             Execute(connection => connection.Query(sqlCommand, parameters));
-       }
+        }
 
-        private T Execute<T>(Func<OracleConnection, T> executeCommand)
+        protected virtual T Execute<T>(Func<OracleConnection, T> executeCommand)
         {
             using (var connection = new OracleConnection(_databaseConfiguration.ConnectionString))
             {

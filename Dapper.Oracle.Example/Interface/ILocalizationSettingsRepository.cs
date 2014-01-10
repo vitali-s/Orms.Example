@@ -6,6 +6,8 @@ namespace Dapper.Oracle.Example.Interface
 {
     public interface ILocalizationSettingsRepository
     {
+        LocalizationSettingsAggregateData GetSettings(Guid entityId, string language);
+
         LocalizationSettingsData GetByEntityId(Guid entityId);
 
         void Insert(LocalizationSettingsData localizationSettings);

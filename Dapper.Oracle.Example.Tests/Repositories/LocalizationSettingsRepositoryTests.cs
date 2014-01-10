@@ -22,6 +22,18 @@ namespace Dapper.Oracle.Example.Tests.Repositories
         }
 
         [TestMethod]
+        public void GetSettings_Should_Retrun_Settings_Aggregate()
+        {
+            var localizationSettings = Fixture.Create<LocalizationSettingsData>();
+
+            _localizationSettingsRepository.Insert(localizationSettings);
+
+            LocalizationSettingsAggregateData settings = _localizationSettingsRepository.GetSettings(localizationSettings.EntityId, localizationSettings.Language);
+
+            Assert.IsNotNull(settings);
+        }
+
+        [TestMethod]
         public void GetByEntityId_Should_Return_Null_If_Setting_Does_Not_Created()
         {
             LocalizationSettingsData localizationSettings = _localizationSettingsRepository.GetByEntityId(Guid.Empty);
