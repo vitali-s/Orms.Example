@@ -2,7 +2,7 @@
 
 using Ploeh.AutoFixture;
 
-namespace Dapper.Oracle.Example.Tests
+namespace Oracle.Example.UnitTests
 {
     public abstract class UnitTest
     {

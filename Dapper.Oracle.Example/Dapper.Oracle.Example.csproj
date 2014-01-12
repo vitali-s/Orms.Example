@@ -58,11 +58,10 @@
     <Compile Include="Repositories\LocalizationSettingsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <Content Include="script.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="script.sql" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

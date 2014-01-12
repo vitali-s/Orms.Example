@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>odac.client.x86</id>
+    <version>1.112.3.20</version>
+    <title>ODAC 11.2 Release 5 (11.2.0.3.20) with Xcopy Deployment</title>
+    <authors>Antônio Milesi Bastos</authors>
+    <owners>Antônio Milesi Bastos</owners>
+    <licenseUrl>http://www.oracle.com/technetwork/licenses/distribution-license-152002.html</licenseUrl>
+    <projectUrl>http://www.milesibastos.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Each 32-bit ODAC client download below supports connectivity to Oracle Database versions 9.2, 10.1, 10.2, and 11.1, and 11.2.</description>
+    <summary>Each 32-bit ODAC client download below supports connectivity to Oracle Database versions 9.2, 10.1, 10.2, and 11.1, and 11.2.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>Oracle DataBase ODAC ODP</tags>
+    <dependencies>
+      <dependency id="odp.net.x86" version="112.3.0" />
+    </dependencies>
+  </metadata>
+</package>

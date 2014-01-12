@@ -35,11 +35,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="KellermanSoftware.Compare-NET-Objects">
       <HintPath>..\packages\CompareObjects.1.0.2\lib\net35\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess">
+      <HintPath>..\packages\odp.net.x86.112.3.20\lib\net40\Oracle.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>..\packages\odp.net.managed.121.1.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.Web">
+      <HintPath>..\packages\odac.client.x86.1.112.3.20\lib\net40\Oracle.Web.dll</HintPath>
     </Reference>
     <Reference Include="Ploeh.AutoFixture">
       <HintPath>..\packages\AutoFixture.3.16.4\lib\net40\Ploeh.AutoFixture.dll</HintPath>
@@ -59,8 +73,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Repositories\LocalizationOverridesRepositoryTests.cs" />
-    <Compile Include="Repositories\LocalizationSettingsRepositoryTests.cs" />
+    <Compile Include="Dapper\LocalizationOverridesRepositoryTests.cs" />
+    <Compile Include="Dapper\LocalizationSettingsRepositoryTests.cs" />
+    <Compile Include="NHibernate\LocalizationOverridesRepositoryTests.cs" />
+    <Compile Include="NHibernate\LocalizationSettingsRepositoryTests.cs" />
     <Compile Include="UnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +88,10 @@
     <ProjectReference Include="..\Dapper.Oracle.Example\Dapper.Oracle.Example.csproj">
       <Project>{095B5A62-B788-4D12-B0B6-B5CB045C8D4C}</Project>
       <Name>Dapper.Oracle.Example</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernate.Oracle.Example\NHibernate.Oracle.Example.csproj">
+      <Project>{289be059-82a7-467e-b3b7-1205e29e562f}</Project>
+      <Name>NHibernate.Oracle.Example</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
