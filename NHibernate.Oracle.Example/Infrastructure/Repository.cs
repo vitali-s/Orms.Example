@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using NHibernate.Cfg;
 using NHibernate.Mapping.ByCode;
-using NHibernate.Oracle.Example.Models;
+using NHibernate.Oracle.Example.Mappings;
 
 namespace NHibernate.Oracle.Example.Infrastructure
 {
@@ -19,26 +19,9 @@ namespace NHibernate.Oracle.Example.Infrastructure
             _configuration.Configure();
 
             var mapper = new ModelMapper();
-
-            mapper.Class<LocalizationSettingsData>(ca =>
-            {
-                ca.Table("LOCALIZATION_SETTINGS");
-                ca.Id(x => x.Id, m => m.Column("ID"));
-                ca.Property(x => x.EntityId, m => m.Column("ENTITY_ID"));
-                ca.Property(x => x.ParentId, m => m.Column("PARENT_ID"));
-                ca.Property(x => x.Language, m => m.Column("LANGUAGE"));
-                ca.Property(x => x.Formatting, m => m.Column("FORMATTING"));
-            });
-
-            mapper.Class<LocalizationData>(ca =>
-            {
-                ca.Table("LOCALE_OVERRIDES");
-                ca.Id(x => x.Id, m => m.Column("ID"));
-                ca.Property(x => x.LocalizationSettingsId, m => m.Column("LOCALIZATION_SETTINGS_ID"));
-                ca.Property(x => x.Key, m => m.Column("KEY"));
-                ca.Property(x => x.Value, m => m.Column("VALUE"));
-            });
-
+            mapper.AddMapping<LocalizationSettingsDataMapping>();
+            mapper.AddMapping<LocalizationDataMapping>();
+            
             _configuration.AddDeserializedMapping(mapper.CompileMappingForAllExplicitlyAddedEntities(), null);
 
             _sessionFactory = _configuration.BuildSessionFactory();

@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Interfaces\ILocalizationSettingsRepository.cs" />
+    <Compile Include="Mappings\LocalizationDataMapping.cs" />
+    <Compile Include="Mappings\LocalizationSettingsDataMapping.cs" />
     <Compile Include="Models\FormattingData.cs" />
     <Compile Include="Models\LocalizationData.cs" />
     <Compile Include="Models\LocalizationSettingsData.cs" />

@@ -26,7 +26,10 @@ namespace Oracle.Example.UnitTests.NHibernate
         [TestMethod]
         public void Insert_Should_Create_Multiple_New_Overrides()
         {
-            var localizationSettings = Fixture.Create<LocalizationSettingsData>();
+            var localizationSettings = Fixture.Build<LocalizationSettingsData>()
+                .With(p => p.Formattings, null)
+                .With(p => p.Localizations, null)
+                .Create();
 
             _localizationSettingsRepository.Insert(localizationSettings);
 
